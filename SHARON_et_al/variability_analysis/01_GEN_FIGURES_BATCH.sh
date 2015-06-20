@@ -28,12 +28,13 @@ for bin in $bins
 do
     # first we generate a varaibiliity profile from SNPs with a scattering
     # power of three (-m 3)
+    INFO "generating the profile for the analysis of variation for $bin"
     anvi-gen-variability-profile -p $path_to_the_merged_dir/PROFILE.db \
                                  -a $path_to_the_merged_dir/ANNOTATION.db \
                                  -c $collection \
                                  -g $bin \
                                  -n 5 \
-                                 -o VARIABILITY_PROFILE_"$bin".txt \
+                                 -o PROFILE_"$bin".txt \
                                  -m 3 \
                                  --quince \
                                  -S 00_SAMPLES
@@ -41,18 +42,31 @@ do
     # the reason we create this one is because we want to learn about all
     # reported splits during the profiling to understand the variation density
     # per kbp for each bin.
+    INFO "generating the profile for the analysis of density for $bin"
     anvi-gen-variability-profile -p $path_to_the_merged_dir/PROFILE.db \
                                  -a $path_to_the_merged_dir/ANNOTATION.db \
                                  -c $collection \
                                  -g $bin \
                                  -n 0 \
-                                 -o VARIATION_DENSITY_"$bin".txt \
+                                 -o DENSITY_"$bin".txt \
                                  -m 0 \
                                  -S 00_SAMPLES
 done
 
 
 # time to visualize:
-./02_GEN_FIGURE_SUMMARY.R VARIABILITY_PROFILE_E_faecalis.txt VARIATION_DENSITY_E_faecalis.txt 158 2870000
-./02_GEN_FIGURE_SUMMARY.R VARIABILITY_PROFILE_S_epidermidis_pan.txt VARIATION_DENSITY_S_epidermidis_pan.txt 158 2610000
-./02_GEN_FIGURE_SUMMARY.R VARIABILITY_PROFILE_S_aureus.txt VARIATION_DENSITY_158S_aureus.txt 2720000
+INFO "visualizing E_faecalis"
+./02_GEN_FIGURE_SUMMARY.R PROFILE_E_faecalis.txt DENSITY_E_faecalis.txt 158 2870000
+
+INFO "visualizing S_epidermidis_pan"
+./02_GEN_FIGURE_SUMMARY.R PROFILE_S_epidermidis_pan.txt DENSITY_S_epidermidis_pan.txt 158 2610000
+
+INFO "visualizing S_aureus"
+./02_GEN_FIGURE_SUMMARY.R PROFILE_S_aureus.txt DENSITY_S_aureus.txt 158 2720000
+          # this is how many unique nucleotide positions |              ^     ^
+          # will be randomly sampled from the profile to |              |     |
+          # make things a bit more visually comparable   |--------------/     |
+          #                                                                   |
+          # this is the genome size that is used to comp |                    |
+          # variation density per kbp in a given bin, so |                    |
+          # also must be changed manually... sorry...    |-------------------/
