@@ -31,12 +31,12 @@ lm_eqn <- function(df){
    f <- summary(m)$fstatistic
    p <- pf(f[1],f[2],f[3],lower.tail=F)
    attributes(p) <- NULL
-   label=paste('r2=', format(summary(m)$r.squared, digits = 3), ', f-statistic:', round(f[1], digits=1), sep = ' ')
+   label=paste('r2:', format(summary(m)$r.squared, digits = 3), 'f-statistic:', round(f[1], digits=1), sep = ' ')
    as.character(label);
 }
 
 
-scatter <- function(profile, num_entries, width = 10, height = 10){
+scatter <- function(profile, num_entries, width = 12, height = 12){
     if(invalid(num_entries)){
         num_entries = 0
     }
@@ -48,6 +48,25 @@ scatter <- function(profile, num_entries, width = 10, height = 10){
 		print('There must be only two samples in the data frame...')
 		exit()
 	}
+
+	# keep the number of eligable positions of nucleotide variation somewhere:
+	total_num_unique_pos <- length(unique(variability_profile$unique_pos_identifier))
+	
+	# setup the transversion_vs_transition data frame:
+	# get the df for competing nt identitis before subsampling:
+	competing = variability_profile[variability_profile$n2n1ratio > 0, ]
+	competing_nts_df <- count(competing, "competing_nts")
+	competing_nts_df$x <- 'all'
+
+	transitions = c('AG', 'CT', 'GA', 'TC')
+	transversion_vs_transition <- data.frame('mtype' = character(), 'freq' = integer(), stringsAsFactors=FALSE)
+	transversion_vs_transition[1, ] <- c('transversion', 0)
+	transversion_vs_transition[2, ] <- c('transition', 0)
+	transversion_vs_transition[transversion_vs_transition$mtype == "transition", ]$freq = sum(competing_nts_df[competing_nts_df$competing_nts %in% transitions, ]$freq)
+	transversion_vs_transition[transversion_vs_transition$mtype == "transversion", ]$freq = sum(competing_nts_df[!(competing_nts_df$competing_nts %in% transitions), ]$freq)
+	transversion_vs_transition$freq <- as.numeric(transversion_vs_transition$freq)
+	transversion_vs_transition$x <- 'all'
+	transversion_vs_transition_ratio <- transversion_vs_transition$freq[2] / transversion_vs_transition$freq[1]
 
     # subsample the df randomly if necessary:
     if(num_entries > 0){
@@ -75,17 +94,23 @@ scatter <- function(profile, num_entries, width = 10, height = 10){
 	new_df$x <- as.numeric(new_df$x)
 	new_df$y <- as.numeric(new_df$y)
 	new_df$var <- as.numeric(new_df$var)
-    
+
+	points  <- data.frame(x = c(0, 0, 1, 1), y = c(0, 1, 0, 1))
+
     g <- ggplot(new_df, aes(x=x, y=y))
     g <- g + geom_point(aes(alpha = var, size=var, color=competing_nts)) 
 	g <- g + scale_fill_manual(values = cols)
 	g <- g + scale_color_manual(values = cols, guide = guide_legend(override.aes=aes(fill=NA)))
     g <- g + stat_smooth(method = "glm", color="black", size=3, formula = y ~ x) 
-    g <- g + annotate('text', hjust=0, x = 0.05, y = 0.9, label = paste(profile, lm_eqn(new_df), sep='\n'), size=7, color='red') 
+    g <- g + annotate('text', hjust=0, x = 0.05, y = 0.9, label = paste(profile, lm_eqn(new_df), paste('N:', total_num_unique_pos, 'n:', nrow(new_df), 'k:', round(transversion_vs_transition_ratio, digits=2), sep=' '), sep='\n'), size=7, color='red') 
 	g <- g + xlab(samples[1]) + ylab(samples[2])
-    g <- g + scale_y_sqrt() + scale_x_sqrt()
-    g <- g + theme(legend.position="none", axis.text.y = element_text(angle = 90))
-
+    g <- g + scale_y_log10() + scale_x_log10()
+    g <- g + theme(legend.position = c(0.1, 0.8), 
+			legend.justification = c(0.1, 0.8), 
+			legend.background = element_rect(colour = NA, fill = "white"), axis.text.y = element_text(angle = 90))
+	g <- g + geom_point(data = points, colour = "red", size=0)
+    
+	
     pdf(paste(profile, '.pdf', sep=""), width=width, height=height)
     print(g)
     dev.off()
