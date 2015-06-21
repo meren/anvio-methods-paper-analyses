@@ -1,0 +1,262 @@
+meren ~/papi-stuff/anvio-methods-paper-analyses/MASON_et_al/SCATTER_PLOTS $ ./01_GEN_SCATTERS_BATCH.sh
+
+#
+#
+# generating variability profile for O_Desum / MG_D_vs_P
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_DISTAL, MG_PROXIMAL
+Remaining entries after "samples of interest" filter ........: 135,397 (filter removed 155,575 entries)
+Num splits of interest ......................................: 615
+Remaining entries after "splits of interest" filter .........: 34,496 (filter removed 100,901 entries)
+Total number of variable positions in samples ...............: MG_DISTAL: 17339; MG_PROXIMAL: 17157
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 6,010 (filter removed 24,974 entries)
+Num entries reported ........................................: 6,010
+Output File .................................................: VARIABILITY_PROFILE_MG_D_vs_P_O_Desum.txt
+Num nt positions reported ...................................: 3,005
+
+#
+#
+# generating scatter plot for O_Desum / MG_D_vs_P
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for Cryptic / MG_D_vs_P
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_DISTAL, MG_PROXIMAL
+Remaining entries after "samples of interest" filter ........: 135,397 (filter removed 155,575 entries)
+Num splits of interest ......................................: 188
+Remaining entries after "splits of interest" filter .........: 4,062 (filter removed 131,335 entries)
+Total number of variable positions in samples ...............: MG_DISTAL: 2022; MG_PROXIMAL: 2040
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 1,118 (filter removed 2,292 entries)
+Num entries reported ........................................: 1,118
+Output File .................................................: VARIABILITY_PROFILE_MG_D_vs_P_Cryptic.txt
+Num nt positions reported ...................................: 559
+
+#
+#
+# generating scatter plot for Cryptic / MG_D_vs_P
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for Unknown / MG_D_vs_P
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_DISTAL, MG_PROXIMAL
+Remaining entries after "samples of interest" filter ........: 135,397 (filter removed 155,575 entries)
+Num splits of interest ......................................: 803
+Remaining entries after "splits of interest" filter .........: 6,558 (filter removed 128,839 entries)
+Total number of variable positions in samples ...............: MG_DISTAL: 3784; MG_PROXIMAL: 2774
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 2,810 (filter removed 1,300 entries)
+Num entries reported ........................................: 2,810
+Output File .................................................: VARIABILITY_PROFILE_MG_D_vs_P_Unknown.txt
+Num nt positions reported ...................................: 1,405
+
+#
+#
+# generating scatter plot for Unknown / MG_D_vs_P
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for O_Desum / MG_D_vs_U
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_DISTAL, MG_UNCONTAMINATED
+Remaining entries after "samples of interest" filter ........: 202,122 (filter removed 88,850 entries)
+Num splits of interest ......................................: 615
+Remaining entries after "splits of interest" filter .........: 21,348 (filter removed 180,774 entries)
+Total number of variable positions in samples ...............: MG_DISTAL: 17339; MG_UNCONTAMINATED: 4009
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 4,546 (filter removed 2,136 entries)
+Num entries reported ........................................: 4,546
+Output File .................................................: VARIABILITY_PROFILE_MG_D_vs_U_O_Desum.txt
+Num nt positions reported ...................................: 2,273
+
+#
+#
+# generating scatter plot for O_Desum / MG_D_vs_U
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for Cryptic / MG_D_vs_U
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_DISTAL, MG_UNCONTAMINATED
+Remaining entries after "samples of interest" filter ........: 202,122 (filter removed 88,850 entries)
+Num splits of interest ......................................: 188
+Remaining entries after "splits of interest" filter .........: 2,230 (filter removed 199,892 entries)
+Total number of variable positions in samples ...............: MG_DISTAL: 2022; MG_UNCONTAMINATED: 208
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 272 (filter removed 48 entries)
+Num entries reported ........................................: 272
+Output File .................................................: VARIABILITY_PROFILE_MG_D_vs_U_Cryptic.txt
+Num nt positions reported ...................................: 136
+
+#
+#
+# generating scatter plot for Cryptic / MG_D_vs_U
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for Unknown / MG_D_vs_U
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_DISTAL, MG_UNCONTAMINATED
+Remaining entries after "samples of interest" filter ........: 202,122 (filter removed 88,850 entries)
+Num splits of interest ......................................: 803
+Remaining entries after "splits of interest" filter .........: 3,813 (filter removed 198,309 entries)
+Total number of variable positions in samples ...............: MG_DISTAL: 3784; MG_UNCONTAMINATED: 29
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 34 (filter removed 0 entries)
+Num entries reported ........................................: 34
+Output File .................................................: VARIABILITY_PROFILE_MG_D_vs_U_Unknown.txt
+Num nt positions reported ...................................: 17
+
+#
+#
+# generating scatter plot for Unknown / MG_D_vs_U
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for O_Desum / MG_P_vs_U
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_PROXIMAL, MG_UNCONTAMINATED
+Remaining entries after "samples of interest" filter ........: 242,005 (filter removed 48,967 entries)
+Num splits of interest ......................................: 615
+Remaining entries after "splits of interest" filter .........: 21,166 (filter removed 220,839 entries)
+Total number of variable positions in samples ...............: MG_PROXIMAL: 17157; MG_UNCONTAMINATED: 4009
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 4,510 (filter removed 2,080 entries)
+Num entries reported ........................................: 4,510
+Output File .................................................: VARIABILITY_PROFILE_MG_P_vs_U_O_Desum.txt
+Num nt positions reported ...................................: 2,255
+
+#
+#
+# generating scatter plot for O_Desum / MG_P_vs_U
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for Cryptic / MG_P_vs_U
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_PROXIMAL, MG_UNCONTAMINATED
+Remaining entries after "samples of interest" filter ........: 242,005 (filter removed 48,967 entries)
+Num splits of interest ......................................: 188
+Remaining entries after "splits of interest" filter .........: 2,248 (filter removed 239,757 entries)
+Total number of variable positions in samples ...............: MG_PROXIMAL: 2040; MG_UNCONTAMINATED: 208
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 268 (filter removed 46 entries)
+Num entries reported ........................................: 268
+Output File .................................................: VARIABILITY_PROFILE_MG_P_vs_U_Cryptic.txt
+Num nt positions reported ...................................: 134
+
+#
+#
+# generating scatter plot for Cryptic / MG_P_vs_U
+#
+#
+
+null device
+          1
+
+#
+#
+# generating variability profile for Unknown / MG_P_vs_U
+#
+#
+
+Variability table ...........................................: 290,972 entries in 22,155 splits across 8 samples
+Samples in the profile db ...................................: MG_DISTAL, MG_PROXIMAL, MG_UNCONTAMINATED, MT_DISTAL, MT_PROXIMAL, SAG_COLWELLIA, SAG_OCEANOSPIRILLALES_HWTA, SAG_OCEANOSPIRILLALES_HWTC
+Samples of interest .........................................: MG_PROXIMAL, MG_UNCONTAMINATED
+Remaining entries after "samples of interest" filter ........: 242,005 (filter removed 48,967 entries)
+Num splits of interest ......................................: 803
+Remaining entries after "splits of interest" filter .........: 2,803 (filter removed 239,202 entries)
+Total number of variable positions in samples ...............: MG_PROXIMAL: 2774; MG_UNCONTAMINATED: 29
+Min occurrence requested ....................................: 2
+Num positions to keep from each split (-n) ..................: 5
+Remaining entries after "-n" filter .........................: 34 (filter removed 0 entries)
+Num entries reported ........................................: 34
+Output File .................................................: VARIABILITY_PROFILE_MG_P_vs_U_Unknown.txt
+Num nt positions reported ...................................: 17
+
+#
+#
+# generating scatter plot for Unknown / MG_P_vs_U
+#
+#
+
+null device
+          1
