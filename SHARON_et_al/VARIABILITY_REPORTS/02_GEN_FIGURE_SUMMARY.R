@@ -30,8 +30,8 @@ transversion_vs_transition_colors <- c('transversion' = "#451910",
 
 
 draw <- function (profile, density, num_entries, genome_size, width = 10, height = 20){
-	# profile = 'VARIABILITY_PROFILE_E_faecalis.txt'
-	# density = 'VARIATION_DENSITY_E_faecalis.txt'
+	# profile = 'PROFILE_E_faecalis.txt'
+	# density = 'DENSITY_E_faecalis.txt'
 	# num_entries = 158
 	# genome_size = 2870000
     if(invalid(num_entries)){
@@ -104,7 +104,7 @@ draw <- function (profile, density, num_entries, genome_size, width = 10, height
                                 plot.margin=unit(c(-0.20,-0.10,-0.20,-0.10), "cm"))
 
 	# transversion vs translation
-	d <- ggplot(transversion_vs_transition, aes(x=factor(x), y=freq, fill=mtype, color=mtype)) + geom_bar(stat="identity")
+	d <- ggplot(transversion_vs_transition, aes(x=factor(x), y=freq)) + geom_bar(aes(fill=mtype), stat="identity")
 	d <- d + scale_color_manual(values = transversion_vs_transition_colors, guide = guide_legend(override.aes=aes(fill=NA)))
 	d <- d + scale_fill_manual(values = transversion_vs_transition_colors)
 	d <- d + coord_flip()
@@ -112,7 +112,7 @@ draw <- function (profile, density, num_entries, genome_size, width = 10, height
 	d <- d + theme_bw() + theme(axis.text.y=element_blank(),
 			axis.text.y = element_blank(),
 			axis.ticks.y=element_blank(),
-			legend.position="none",
+			legend.position="bottom",
 			axis.line.y = element_line(colour = "black"),
 			panel.grid.major = element_blank(),
 			panel.grid.minor = element_blank(),
@@ -124,7 +124,7 @@ draw <- function (profile, density, num_entries, genome_size, width = 10, height
             plot.margin=unit(c(-0.20,-0.10,-0.20,-0.10), "cm"))
 
 	g <- ggplot(data=variability_profile_subsampled, aes(x = sample_id, y = factor(unique_pos_identifier)))
-    g <- g + geom_tile(aes(group=competing_nts, fill=competing_nts, alpha=n2n1ratio))
+    g <- g + geom_tile(aes(group=competing_nts, fill=competing_nts, alpha=sqrt(n2n1ratio)))
     g <- g + scale_x_discrete(expand = c(0, 0))
     g <- g + scale_y_discrete(expand = c(0, 0))
     g <- g + theme_bw() + theme(axis.text.y=element_blank(),
