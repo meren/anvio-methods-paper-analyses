@@ -6,7 +6,7 @@ set -e
 # database in a merged directory (`path_to_the_merge`).
 path_to_the_merge="/Users/meren/papi-stuff/MASON-MG-MERGED"
 collection="SUPERVISED"
-bins="O_Desum Cryptic Unknown"
+bins="DWH_O_Desum DWH_Cryptic DWH_Unknown"
 
 C() {
     echo -e "\033[0;30m\033[46m$1\033[0m"
