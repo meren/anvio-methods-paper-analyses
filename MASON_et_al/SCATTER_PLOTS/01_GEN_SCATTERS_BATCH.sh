@@ -32,7 +32,7 @@ do
         anvi-gen-variability-profile -p $path_to_the_merge/PROFILE.db \
                                      -a $path_to_the_merge/ANNOTATION.db \
                                      -c $collection \
-                                     -g $bin \
+                                     -b $bin \
                                      -n 5 \
                                      -o VARIABILITY_PROFILE_"$comparison"_"$bin".txt \
                                      -m 0 \

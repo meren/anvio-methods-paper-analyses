@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # this file will first generate reports of variabliilty profiles for
 # each bin in `bins` described under the `collection` id in the merged
 # profile database that will be found in `path_to_the_merged_dir`.
@@ -32,7 +34,7 @@ do
     anvi-gen-variability-profile -p $path_to_the_merged_dir/PROFILE.db \
                                  -a $path_to_the_merged_dir/ANNOTATION.db \
                                  -c $collection \
-                                 -g $bin \
+                                 -b $bin \
                                  -n 5 \
                                  -o PROFILE_"$bin".txt \
                                  -m 3 \
@@ -46,7 +48,7 @@ do
     anvi-gen-variability-profile -p $path_to_the_merged_dir/PROFILE.db \
                                  -a $path_to_the_merged_dir/ANNOTATION.db \
                                  -c $collection \
-                                 -g $bin \
+                                 -b $bin \
                                  -n 0 \
                                  -o DENSITY_"$bin".txt \
                                  -m 0 \
