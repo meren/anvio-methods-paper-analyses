@@ -1,0 +1,15 @@
+[general]
+
+[TNF !ANNOTATION.db::kmer_contigs]
+
+[Coverage PROFILE.db::mean_coverage_contigs]
+columns_to_use = MG_DISTAL,MG_PROXIMAL,MG_UNCONTAMINATED
+
+[Coverage_N PROFILE.db::mean_coverage_contigs]
+columns_to_use = MG_DISTAL,MG_PROXIMAL,MG_UNCONTAMINATED
+normalize = False
+log = True
+
+[GC_content !ANNOTATION.db::splits_basic_info]
+columns_to_use = gc_content_parent,gc_content_parent,gc_content_parent
+normalize = False
