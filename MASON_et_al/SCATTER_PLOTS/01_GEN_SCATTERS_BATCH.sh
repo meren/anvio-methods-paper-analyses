@@ -1,12 +1,19 @@
 #!/bin/bash
 set -e
 
+# clean all
+./00_CLEAN_THIS_DIR.sh
+
+# get the anvi'o merged profile for mason metagenomes
+wget http://files.figshare.com/2196643/MASON_YERGEAU_MG_MERGED.tar.gz
+tar -zxvf MASON_YERGEAU_MG_MERGED.tar.gz
+
 # edit these three varaibles to specify which `bins` to focus on,
 # in a particular `collection` that can be found in the profile
 # database in a merged directory (`path_to_the_merge`).
-path_to_the_merge="/Users/meren/papi-stuff/MASON-MG-MERGED"
+path_to_the_merge="MASON-YERGEAU-MG-MERGED"
 collection="SUPERVISED"
-bins="DWH_O_Desum DWH_Cryptic DWH_Unknown"
+bins="DWH_O_desum DWH_Cryptic DWH_Unknown"
 
 C() {
     echo -e "\033[0;30m\033[46m$1\033[0m"
@@ -24,7 +31,7 @@ INFO() {
 
 rm -rf *PROFILE_*.txt *PROFILE_*.pdf
 
-for comparison in `ls 00_SAMPLES_* | awk 'BEGIN{FS="00_SAMPLES_"}{print $2}'`
+for comparison in `ls SAMPLES_* | awk 'BEGIN{FS="SAMPLES_"}{print $2}'`
 do
     for bin in $bins
     do
@@ -37,7 +44,7 @@ do
                                      -o VARIABILITY_PROFILE_"$comparison"_"$bin".txt \
                                      -m 0 \
                                      -x 2\
-                                     -S 00_SAMPLES_"$comparison" \
+                                     -S SAMPLES_"$comparison" \
                                      --quince
 
 
