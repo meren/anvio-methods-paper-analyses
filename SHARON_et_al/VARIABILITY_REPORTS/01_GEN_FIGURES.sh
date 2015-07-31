@@ -2,10 +2,14 @@
 
 set -e
 
-# this file will first generate reports of variabliilty profiles for
-# each bin in `bins` described under the `collection` id in the merged
-# profile database that will be found in `path_to_the_merged_dir`.
-path_to_the_merged_dir="/Users/meren/papi-stuff/INFANT-CLC-MERGED"
+# clean the directory
+./00_CLEAN_THIS_DIR.sh
+
+# get the merged profile:
+wget http://files.figshare.com/2196633/INFANT_CLC_MERGED.tar.gz
+tar -zxvf INFANT_CLC_MERGED.tar.gz
+
+path_to_the_merged_dir="INFANT-CLC-MERGED"
 collection="SUPERVISED"
 bins="E_faecalis S_epidermidis_pan S_aureus"
 
@@ -22,9 +26,6 @@ INFO() {
     C "#"
     echo
 }
-rm -rf *DENSITY*.txt
-rm -rf *PROFILE*.txt
-rm -rf *pdf
 
 for bin in $bins
 do
@@ -39,7 +40,7 @@ do
                                  -o PROFILE_"$bin".txt \
                                  -m 3 \
                                  --quince \
-                                 -S 00_SAMPLES
+                                 -S SAMPLES.txt
 
     # the reason we create this one is because we want to learn about all
     # reported splits during the profiling to understand the variation density
@@ -52,7 +53,7 @@ do
                                  -n 0 \
                                  -o DENSITY_"$bin".txt \
                                  -m 0 \
-                                 -S 00_SAMPLES
+                                 -S SAMPLES.txt
 done
 
 
@@ -65,10 +66,10 @@ INFO "visualizing S_epidermidis_pan"
 
 INFO "visualizing S_aureus"
 ./02_GEN_FIGURE_SUMMARY.R PROFILE_S_aureus.txt DENSITY_S_aureus.txt 158 2720000
-          # this is how many unique nucleotide positions |              ^     ^
-          # will be randomly sampled from the profile to |              |     |
-          # make things a bit more visually comparable   |--------------/     |
-          #                                                                   |
-          # this is the genome size that is used to comp |                    |
-          # variation density per kbp in a given bin, so |                    |
-          # also must be changed manually... sorry...    |-------------------/
+       # this is how many unique nucleotide positions |              ^     ^
+       # will be randomly sampled from the profile to |              |     |
+       # make things a bit more visually comparable   |--------------/     |
+       #                                                                   |
+       # this is the genome size that is used to comp |                    |
+       # variation density per kbp in a given bin, so |                    |
+       # also must be changed manually... sorry...    |-------------------/
