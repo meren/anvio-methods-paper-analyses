@@ -4,6 +4,7 @@ suppressPackageStartupMessages(library('ggplot2'))
 suppressPackageStartupMessages(library('reshape2'))
 suppressPackageStartupMessages(library('reshape'))
 suppressPackageStartupMessages(library('gridExtra'))
+suppressPackageStartupMessages(library('grid'))
 suppressPackageStartupMessages(library('plyr'))
 suppressPackageStartupMessages(library('gtools'))
 
