@@ -8,13 +8,12 @@ set -e
 # following steps identifies the annotation for each split in Sharon et al results, and creates an
 # 'additional metadata file' that can be imported from the interactive interface to visualize the
 # concordance.
-export merged_profile_db="/Users/meren/papi-stuff/INFANT-CLC-MERGED/PROFILE.db"
-export annotation_db="/Users/meren/papi-stuff/INFANT-CLC-MERGED/ANNOTATION.db"
+export contigs_db="/PATH/TO/CONTIGS.db"
 
 # Clean stuff from the previous analysis:
     ./00_CLEAN.sh
 
-# Unpack the archive:
+# Open the archive
 
     tar -zxvf 01_BINS_FASTA.tar.gz
 
@@ -28,21 +27,17 @@ export annotation_db="/Users/meren/papi-stuff/INFANT-CLC-MERGED/ANNOTATION.db"
         grep -v '>' 01_BINS_FASTA/$b.fa >> 03_SHARON_et_al_BINS_FASTA.fa
     done
 
-# Run this to get splits (INFANT-SPLITS.fa):
+# Run this to get contigs
 
-    anvi-export-splits-and-coverages -a $annotation_db -p $merged_profile_db -O 04_INFANT -o `pwd`
+    anvi-export-contigs -c $contigs_db -o 04_INFANT_CONTIGS.fa
 
-# Remove the coverages file, as we don't need it:
-
-    rm 04_INFANT-COVs.txt
-
-# Creat a BLAST db for Sharon et al bins:
+# Create a BLAST db for Sharon et al bins:
 
     makeblastdb -in 03_SHARON_et_al_BINS_FASTA.fa -dbtype nucl
 
 # Do the BLAST search:
 
-    blastn -query 04_INFANT-SPLITS.fa -db 03_SHARON_et_al_BINS_FASTA.fa -out 05_SHARON_et_al_BINS_HITS.b6 -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen' -max_target_seqs 1
+    blastn -query 04_INFANT_CONTIGS.fa -db 03_SHARON_et_al_BINS_FASTA.fa -out 05_SHARON_et_al_BINS_HITS.b6 -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen' -max_target_seqs 1
 
 # Create an additional metadata file for anvi'o:
 
