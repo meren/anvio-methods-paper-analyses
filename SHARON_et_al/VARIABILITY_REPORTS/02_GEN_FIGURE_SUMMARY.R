@@ -91,7 +91,6 @@ draw <- function (profile, density, num_entries, genome_size, width = 10, height
     b <- b + coord_flip()
     b <- b + xlab(paste('n:', total_num_unique_pos, sep=" "))
     b <- b + theme_bw() + theme(axis.text.y=element_blank(),
-                                axis.text.y = element_blank(),
                                 axis.ticks.y=element_blank(),
                                 legend.position="none",
                                 axis.line.y = element_line(colour = "black"),
@@ -111,7 +110,6 @@ draw <- function (profile, density, num_entries, genome_size, width = 10, height
     d <- d + coord_flip()
     d <- d + xlab(paste('k:', round(transversion_vs_transition_ratio, digits=2), sep=" "))
     d <- d + theme_bw() + theme(axis.text.y=element_blank(),
-            axis.text.y = element_blank(),
             axis.ticks.y=element_blank(),
             legend.position="bottom",
             axis.line.y = element_line(colour = "black"),
@@ -128,8 +126,7 @@ draw <- function (profile, density, num_entries, genome_size, width = 10, height
     g <- g + geom_tile(aes(group=competing_nts, fill=competing_nts, alpha=sqrt(n2n1ratio)))
     g <- g + scale_x_discrete(expand = c(0, 0))
     g <- g + scale_y_discrete(expand = c(0, 0))
-    g <- g + theme_bw() + theme(axis.text.y=element_blank(),
-                                axis.text.y = element_text(size = 6),
+    g <- g + theme_bw() + theme(axis.text.y = element_text(size = 6),
                                 axis.ticks.y=element_blank(),
                                 legend.position="bottom",
                                 axis.line.y = element_line(colour = "black"),
@@ -166,7 +163,6 @@ draw <- function (profile, density, num_entries, genome_size, width = 10, height
     x <- x + ylab(paste('max:', round(max(variability_density_per_sample_df$freq), digits=2), sep=" "))
     x <- x + theme_bw() + theme(
             axis.text.y=element_blank(),
-            axis.text.y = element_blank(),
             axis.ticks.y=element_blank(),
             legend.position="none",
             axis.line.y = element_line(colour = "black"),
